@@ -44,7 +44,7 @@ export default function KilimanjaroPage() {
       title: "Rongai Route",
       tag: "Quiet Northern Trail",
       image:
-        "/images/pexels-seyfidurmaz-5992142.jpg",
+        "/images/lodge.jpg",
       description:
         "A peaceful route approaching from the north with gradual ascent and beautiful landscapes.",
       duration: ["5–7 Days"],
