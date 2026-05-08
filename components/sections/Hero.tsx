@@ -46,8 +46,8 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden bg-black">
-      {/* BACKGROUND IMAGES */}
+<section className="relative">
+    {/* BACKGROUND IMAGES */}
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -65,7 +65,12 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-safari-forest/60 to-black/60" />
         </div>
       ))}
-
+<br>
+</br>
+<br>
+</br>
+<br>
+</br>
       {/* CONTENT */}
       <div className="relative z-20 flex items-center justify-center h-full px-6">
         <div className="max-w-5xl text-center text-white">

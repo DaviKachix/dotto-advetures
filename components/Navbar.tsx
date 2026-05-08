@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Menu, X, MapPin } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -15,68 +15,75 @@ export default function Navbar() {
     { name: "Contact", href: "/contact" },
   ];
 
-  return (
-    <header className="fixed top-4 left-0 w-full z-50 px-4">
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
 
-      {/* NAV CONTAINER (WHITE FLOATING CARD) */}
+  return (
+    <header className="fixed top-5 left-0 w-full z-[100] px-4">
+
+      {/* NAVBAR */}
       <nav className="
         mx-auto max-w-7xl
-        bg-white/90 backdrop-blur-xl
-        shadow-lg
-        rounded-2xl
+        bg-white/80 backdrop-blur-2xl
         border border-black/5
-        px-5 py-4
+        shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+        rounded-3xl
+        px-6 py-4
         flex items-center justify-between
       ">
 
         {/* LOGO */}
-        <a
-          href="/"
-          className="flex items-center gap-3 font-bold text-safari-forest"
-        >
-       <img
-  src="/images/DOTTO.png"
-  alt="Dotto African Adventures"
-  className="h-16 w-16 object-cover"
-/>
-          <span className="hidden sm:block">
-            Dotto African Adventures
-          </span>
+        <a href="/" className="flex items-center gap-3">
+          <div className="relative">
+            <img
+              src="/images/DOTTO.png"
+              alt="Dotto African Adventures"
+              className="h-14 w-14 rounded-xl object-cover shadow-md"
+            />
+          </div>
+
+          <div className="leading-tight hidden sm:block">
+            <p className="text-safari-forest font-bold text-sm tracking-wide">
+              Dotto African Adventures
+            </p>
+            <p className="text-xs text-gray-500 flex items-center gap-1">
+              <MapPin size={12} /> Tanzania Safaris
+            </p>
+          </div>
         </a>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-8">
-
-          {links.map((link) => (
+        {/* DESKTOP LINKS */}
+        <div className="hidden md:flex items-center gap-7">
+          {links.map((l) => (
             <a
-              key={link.name}
-              href={link.href}
+              key={l.name}
+              href={l.href}
               className="
-                text-safari-forest
-                font-medium
-                text-sm
-                transition
+                text-sm font-medium
+                text-safari-forest/80
                 hover:text-yellow-600
+                transition
               "
             >
-              {link.name}
+              {l.name}
             </a>
           ))}
 
           <a
             href="/contact"
             className="
-              bg-safari-forest
-              text-white
-              px-5 py-2
-              rounded-full
-              font-semibold
+              px-5 py-2 rounded-full
+              bg-safari-forest text-white
+              text-sm font-semibold
+              hover:bg-yellow-500 hover:text-safari-forest
               transition
-              hover:bg-yellow-500
-              hover:text-safari-forest
             "
           >
-            Book Now
+            Plan Safari
           </a>
         </div>
 
@@ -89,96 +96,99 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* MOBILE DRAWER */}
+      {/* MOBILE OVERLAY */}
       <div
-        className={`fixed inset-0 z-50 transition ${
+        className={`fixed inset-0 z-[200] transition ${
           open ? "visible" : "invisible"
         }`}
       >
-
         {/* BACKDROP */}
         <div
           onClick={() => setOpen(false)}
-          className={`absolute inset-0 bg-black/40 transition-opacity ${
+          className={`absolute inset-0 bg-black/60 transition-opacity ${
             open ? "opacity-100" : "opacity-0"
           }`}
         />
-
-        {/* DRAWER */}
+<br>
+</br>
+<br>
+</br>
+<br>
+</br>
+        {/* PANEL */}
         <div
           className={`
-            absolute left-0 top-0 h-full w-[85%] max-w-sm
-            bg-white rounded-r-3xl shadow-2xl
-            transform transition-transform duration-500
+            absolute left-0 top-0 h-full w-[88%] max-w-sm
+            bg-white
+            shadow-2xl
+            transform transition-transform duration-500 ease-out
             ${open ? "translate-x-0" : "-translate-x-full"}
-            flex flex-col justify-between
+            flex flex-col
           `}
         >
 
-          {/* TOP */}
-          <div className="p-6">
-
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-safari-forest font-bold text-lg">
-                Menu
-              </h2>
-
-              <button onClick={() => setOpen(false)}>
-                <X />
-              </button>
+          {/* HEADER */}
+          <div className="p-6 flex items-center justify-between border-b">
+            <div>
+              <p className="text-safari-forest font-bold">Menu</p>
+              <p className="text-xs text-gray-500">Explore Tanzania</p>
             </div>
 
-            <div className="flex flex-col gap-2">
-              {links.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="
-                    px-3 py-3 rounded-xl
-                    text-safari-forest font-medium
-                    hover:bg-yellow-100
-                    hover:text-yellow-700
-                    transition
-                  "
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
+            <button onClick={() => setOpen(false)}>
+              <X />
+            </button>
+          </div>
 
+          {/* LINKS */}
+          <div className="p-6 flex flex-col gap-2">
+            {links.map((l) => (
+              <a
+                key={l.name}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="
+                  px-4 py-3 rounded-xl
+                  text-safari-forest font-medium
+                  hover:bg-yellow-50 hover:text-yellow-700
+                  transition
+                "
+              >
+                {l.name}
+              </a>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="px-6 mt-auto mb-6">
             <a
               href="/contact"
               className="
-                mt-6 block text-center
+                block text-center
                 bg-safari-forest text-white
-                py-3 rounded-full font-semibold
+                py-3 rounded-2xl font-semibold
                 hover:bg-yellow-500 hover:text-safari-forest
                 transition
               "
             >
               Book Safari
             </a>
-
           </div>
 
           {/* IMAGE FOOTER */}
-          <div className="relative h-40">
+          <div className="relative h-44">
             <img
               src="/images/wide-angle-shot-giraffe-standing-tall-trees-savannah.jpg"
               className="w-full h-full object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-
-            <p className="absolute bottom-3 left-4 text-white text-sm font-medium">
-              Explore Tanzania
+            <p className="absolute bottom-4 left-4 text-white text-sm font-medium">
+              Safari Begins Here
             </p>
           </div>
 
         </div>
       </div>
-
     </header>
   );
 }
