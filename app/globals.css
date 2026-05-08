@@ -1,26 +1,391 @@
-@import "tailwindcss";
+/* =========================================================
+   DOTTO AFRICAN ADVENTURES & SAFARIS
+   PREMIUM SAFARI UI SYSTEM (Optimized)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+
+/* =========================================================
+   ROOT TOKENS
+   ========================================================= */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* COLORS */
+  --forest: #0B3D2E;
+  --forest-light: #145443;
+
+  --sand: #D6C6A5;
+  --sand-light: #F3EAD7;
+
+  --accent: #F4A300;
+  --accent-soft: #ffd27a;
+
+  --bg: #faf8f3;
+  --text: #1b1b1b;
+  --muted: #6b7280;
+
+  --border: rgba(0,0,0,0.08);
+
+  /* SHADOWS */
+  --shadow-sm: 0 4px 10px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+
+  /* RADIUS */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+
+  /* TYPOGRAPHY */
+  --font-heading: "Pacifico", cursive;
+  --font-body: "Josefin Sans", sans-serif;
+
+  --transition: all 0.25s ease;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   GLOBAL BACKGROUND IMAGE (SITE-WIDE LAYER)
+   ========================================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -50;
+  pointer-events: none;
+
+  background-image: url("/images/erand.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.5; /* very subtle premium texture */
+  transform: scale(1.08);
+
+  filter: saturate(1.1) contrast(1.05);
+}
+
+/* Soft global readability overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -49;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.55),
+    rgba(250, 248, 243, 0.35),
+    rgba(250, 248, 243, 1)
+  );
+}
+
+/* =========================================================
+   TYPOGRAPHY SYSTEM
+   ========================================================= */
+
+h1, h2, h3, h4, h5, .logo {
+  font-family: var(--font-heading);
+  color: var(--forest);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--white);
+}
+
+h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: 1.6rem; }
+
+p {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* =========================================================
+   LAYOUT SYSTEM
+   ========================================================= */
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: clamp(70px, 8vw, 110px) 0;
+}
+
+/* =========================================================
+   NAVBAR (BASE STYLE ONLY)
+   ========================================================= */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(11, 61, 46, 0.92);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  padding: 18px 0;
+}
+
+/* =========================================================
+   HERO SYSTEM
+   ========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+/* =========================================================
+   BUTTON SYSTEM
+   ========================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 26px;
+
+  border-radius: var(--radius-sm);
+
+  font-weight: 600;
+
+  transition: var(--transition);
+
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--forest);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--forest-light);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--forest);
+}
+
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+}
+
+/* =========================================================
+   CARDS SYSTEM
+   ========================================================= */
+
+.card {
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 24px;
+}
+
+/* =========================================================
+   GRID SYSTEM
+   ========================================================= */
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.badge {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  background: rgba(244,163,0,0.12);
+  color: var(--accent);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+input, textarea, select {
+  width: 100%;
+  padding: 14px;
+
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(244,163,0,0.15);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  background: var(--forest);
+  color: white;
+  padding: 80px 0 30px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+
+.fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 992px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 70px 0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =========================================================
+   GLOBAL LAYOUT SPACING
+   ========================================================= */
+
+section {
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-9);
+}
+
+@media (max-width: 768px) {
+  section {
+    padding-top: var(--space-7);
+    padding-bottom: var(--space-7);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 6s linear infinite;
 }
