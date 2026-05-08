@@ -6,7 +6,7 @@ const packages = [
     days: "8 Days",
     price: "$2400",
     image:
-      "/images/group-magnificent-lions-gravel-road-surrounded-by-grassy-fields-trees.jpg",
+      "/images/lodge.jpg",
     link: "/packages/great-migration",
   },
   {

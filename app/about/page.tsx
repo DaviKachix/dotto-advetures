@@ -27,7 +27,11 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-[#0f3d2e]/75 to-black/70" />
 
         <div className="relative z-20 text-center px-6 max-w-5xl text-white">
-          <div className="inline-block px-5 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md text-sm mb-6">
+         <br>
+         </br> 
+         <br>
+         </br>
+         <div className="inline-block px-5 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md text-sm mb-6">
             About Dotto African Adventures & Safaris
           </div>
 

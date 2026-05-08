@@ -56,7 +56,7 @@ export default function SafariPage() {
         <div className="max-w-5xl mx-auto text-center">
 
           <p className="uppercase tracking-[0.25em] text-xs text-white/70">
-            Airo Adventures & Safaris
+            Dotto African Adventures & Safaris
           </p>
 
           <h1 className="mt-4 text-4xl md:text-6xl font-black leading-tight">

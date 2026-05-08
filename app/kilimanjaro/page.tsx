@@ -236,11 +236,11 @@ export default function KilimanjaroPage() {
 
         <div className="relative z-20 max-w-6xl mx-auto text-white">
           <div className="text-center mb-16">
-            <p className="text-[#d6c6a5] font-semibold">
+            <p className="text-white font-semibold">
               Why Trek With Us
             </p>
 
-            <h2 className="text-5xl font-black mt-3">
+            <h2 className="text-5xl text-white font-black mt-3">
               Mountain Support You Can Trust
             </h2>
           </div>
