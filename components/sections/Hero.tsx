@@ -91,14 +91,12 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Button
               variant="accent"
-              className="bg-safari-sand text-safari-forest hover:scale-105 transition-all duration-300 shadow-2xl px-7 py-4 text-base"
             >
               {slides[current].cta}
             </Button>
 
             <Button
               variant="outline"
-              className="border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 px-7 py-4 text-white"
             >
               Plan Your Adventure
             </Button>
