@@ -46,7 +46,7 @@ export default function Navbar() {
             />
           </div>
 
-          <div className="leading-tight hidden sm:block">
+          <div className="leading-tight sm:block">
             <p className="text-safari-forest font-bold text-sm tracking-wide">
               Dotto African Adventures
             </p>
@@ -131,7 +131,7 @@ export default function Navbar() {
           <div className="p-6 flex items-center justify-between border-b">
             <div>
               <p className="text-safari-forest font-bold">Menu</p>
-              <p className="text-xs text-gray-500">Explore Tanzania</p>
+              <p className="text-xs text-gray-500">Dotto African Adventures</p>
             </div>
 
             <button onClick={() => setOpen(false)}>
