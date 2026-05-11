@@ -5,6 +5,82 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingContact from "./Floating";
 
+export const metadata = {
+  metadataBase: new URL("https://dottoafricanadventures.com"),
+
+  title: {
+    default: "Dotto African Adventures & Safaris | Tanzania Safari & Kilimanjaro Tours",
+    template: "%s | Dotto African Adventures",
+  },
+
+  description:
+    "Discover unforgettable Tanzania safaris, Kilimanjaro trekking adventures, and Zanzibar beach holidays with Dotto African Adventures. Expert local guides, tailor-made itineraries, and premium travel experiences in East Africa.",
+
+  keywords: [
+    "Tanzania safari",
+    "Kilimanjaro trekking",
+    "Serengeti safari",
+    "Ngorongoro crater tours",
+    "Zanzibar holidays",
+    "African safari tours",
+    "wildlife photography tours Tanzania",
+    "Mount Kilimanjaro climb",
+    "Arusha safari company",
+    "East Africa travel agency",
+    "luxury safari Tanzania",
+    "budget safari Tanzania",
+    "custom Tanzania itinerary",
+    "Dotto African Adventures",
+  ],
+
+  authors: [{ name: "Dotto African Adventures & Safaris" }],
+
+  creator: "Dotto African Adventures",
+
+  openGraph: {
+    title: "Dotto African Adventures & Safaris",
+    description:
+      "Premium Tanzania safaris, Kilimanjaro climbs, and Zanzibar tours with expert local guides.",
+    url: "https://dottoafricanadventures.com",
+    siteName: "Dotto African Adventures",
+    images: [
+      {
+        url: "/DOTTO.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dotto African Adventures Safari Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Dotto African Adventures & Safaris",
+    description:
+      "Explore Tanzania safaris, Kilimanjaro trekking and Zanzibar holidays.",
+    images: ["/DOTTO.jpg"],
+  },
+
+  icons: {
+    icon: "/DOTTO.jpg",
+    shortcut: "/DOTTO.jpg",
+    apple: "/DOTTO.jpg",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
