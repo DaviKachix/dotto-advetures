@@ -94,28 +94,47 @@ export default function Footer() {
   </div>
         </div>
 
-        {/* SOCIAL */}
-        <div className="animate-[fadeUp_0.8s_ease_forwards] delay-300">
-          <h3 className="text-lg font-semibold text-white">Follow Us</h3>
+       {/* SOCIAL */}
+<div className="animate-[fadeUp_0.8s_ease_forwards] delay-300">
+  <h3 className="text-lg font-semibold text-white">Follow Us</h3>
 
-          <p className="mt-5 text-sm leading-7 text-white">
-            Follow our safari journeys, wildlife moments, and travel stories from Tanzania.
-          </p>
+  <p className="mt-5 text-sm leading-7 text-white/80">
+    Follow our safari journeys, wildlife moments, and travel stories from Tanzania.
+  </p>
 
-          <div className="mt-6 flex items-center gap-4">
+  <div className="mt-6 flex items-center gap-4">
+    {/* Facebook */}
+    <a
+      href="https://www.facebook.com/share/17QW8LrbTH/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group rounded-full border border-white/30 p-3 transition hover:-translate-y-0.5 hover:border-white"
+      aria-label="Facebook"
+    >
+      <FaFacebookF size={16} className="text-white group-hover:opacity-80" />
+    </a>
 
-            {[FaFacebookF, FaInstagram, FaXTwitter].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="group rounded-full border border-white/30 p-3 transition duration-300 hover:-translate-y-0.5 hover:border-white"
-              >
-                <Icon size={16} className="text-white group-hover:opacity-80 transition" />
-              </a>
-            ))}
+    {/* Instagram */}
+    <a
+      href="https://www.instagram.com/dottoafricanadventuretours?igsh=MXFzZDNobDM0bHd3ZA=="
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group rounded-full border border-white/30 p-3 transition hover:-translate-y-0.5 hover:border-white"
+      aria-label="Instagram"
+    >
+      <FaInstagram size={16} className="text-white group-hover:opacity-80" />
+    </a>
 
-          </div>
-        </div>
+    {/* X (Twitter) - optional placeholder */}
+    <a
+      href="#"
+      className="group rounded-full border border-white/30 p-3 transition hover:-translate-y-0.5 hover:border-white"
+      aria-label="X (Twitter)"
+    >
+      <FaXTwitter size={16} className="text-white group-hover:opacity-80" />
+    </a>
+  </div>
+</div>
 
       </div>
 

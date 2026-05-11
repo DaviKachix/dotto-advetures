@@ -14,7 +14,7 @@ const experiences = [
   },
   {
     title: "Beach Holidays",
-    image: "/images/pexels-sergey-pesterev-69811391-8427984.jpg",
+    image: "/images/zanzibar-beach.jpg",
     desc: "Relax on Zanzibar’s pristine beaches with turquoise ocean views.",
   },
 ];

@@ -37,7 +37,7 @@ export default function DestinationsPage() {
     {
       title: "Zanzibar",
       subtitle: "Luxury Island Escape",
-      image: "/images/pexels-sergey-pesterev-69811391-8427984.jpg",
+      image: "/images/zanzibar-beach.jpg",
       desc: "White sandy beaches, turquoise waters and unforgettable island relaxation.",
     },
   ];

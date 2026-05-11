@@ -1,41 +1,63 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/Button";
 
 const slides = [
   {
     title: "Luxury Tanzania Safaris",
     subtitle:
-      "Experience unforgettable wildlife adventures across Serengeti, Ngorongoro & Tarangire.",
+      "Experience unforgettable wildlife adventures across Serengeti, Ngorongoro, Tarangire and Tanzania’s iconic safari landscapes.",
     image:
       "/images/group-magnificent-lions-gravel-road-surrounded-by-grassy-fields-trees.jpg",
     tag: "Most Booked Safari",
     cta: "Explore Safaris",
+    href: "/safaris",
   },
   {
     title: "Kilimanjaro Trekking Adventures",
-    subtitle: "Conquer Africa’s highest peak with professional mountain guides.",
+    subtitle:
+      "Conquer Africa’s highest peak with experienced mountain guides, scenic routes and fully supported trekking journeys.",
     image:
-      "/images/group-tourists-hiking-top-etna-volcano-sicily-italy.jpg",
+      "/images/kilimanjaro-peak.jpg",
     tag: "Top Climbing Package",
     cta: "View Climbs",
+    href: "/kilimanjaro",
   },
   {
     title: "Zanzibar Beach Escapes",
-    subtitle: "Relax on white sandy beaches with premium island experiences.",
-    image:
-      "/images/pexels-sergey-pesterev-69811391-8427984.jpg",
+    subtitle:
+      "Relax on white sand beaches and enjoy luxury island experiences, ocean views and tropical sunsets in Zanzibar.",
+    image: "/images/cool-zanzibar.jpg",
     tag: "Luxury Beach Holiday",
     cta: "Explore Zanzibar",
+    href: "/zanzibar",
   },
   {
     title: "Wildlife Photography Tours",
     subtitle:
-      "Capture lions, elephants, giraffes and breathtaking African landscapes.",
+      "Capture lions, elephants, giraffes and breathtaking African landscapes through curated photography journeys.",
     image: "/images/african-elephants-together-nature.jpg",
     tag: "Photographer Favorite",
     cta: "Discover Tours",
+    href: "/photography-tours",
+  },
+];
+
+const quickStats = [
+  {
+    title: "14+ Packages",
+    desc: "Curated safari & adventure experiences",
+  },
+  {
+    title: "Local Guides",
+    desc: "Professional Tanzanian experts",
+  },
+  {
+    title: "Custom Trips",
+    desc: "Tailor-made travel itineraries",
   },
 ];
 
@@ -43,106 +65,130 @@ export function Hero() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 6000);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, []);
 
+  const activeSlide = useMemo(() => slides[current], [current]);
+
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden bg-black">
       {/* BACKGROUND SLIDES */}
       {slides.map((slide, index) => (
         <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-out ${
+          key={slide.title}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
             current === index ? "opacity-100" : "opacity-0"
           }`}
         >
           <img
             src={slide.image}
             alt={slide.title}
-            className="h-full w-full object-cover scale-110 animate-[slowZoom_12s_linear_infinite]"
+            loading={index === 0 ? "eager" : "lazy"}
+            className="h-full w-full object-cover animate-[heroZoom_12s_linear_forwards]"
           />
 
-          {/* CLEAN OVERLAY LAYER */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70" />
+          {/* overlays */}
+          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80" />
         </div>
       ))}
 
       {/* CONTENT */}
-      <div className="relative z-20 flex h-full items-center justify-center px-6">
-        <div className="max-w-5xl text-center text-white">
+      <div className="relative z-20 flex min-h-screen items-center">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="max-w-5xl pt-28 pb-16 md:pt-36">
+            {/* TAG */}
+            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2.5 backdrop-blur-md">
+              <span className="h-2 w-2 rounded-full bg-safari-sand animate-pulse" />
 
-          {/* TAG */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-6">
-            <span className="h-2 w-2 rounded-full bg-safari-sand animate-pulse" />
-            <span className="text-xs tracking-[0.2em] uppercase text-white/80">
-              {slides[current].tag}
-            </span>
-          </div>
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-white/80 font-medium">
+                {activeSlide.tag}
+              </span>
+            </div>
 
-          {/* TITLE */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
-            {slides[current].title}
-          </h1>
+            {/* TITLE */}
+            <h1 className="max-w-4xl text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl">
+              {activeSlide.title}
+            </h1>
 
-          {/* SUBTITLE */}
-          <p className="mt-6 text-base md:text-lg text-white/75 max-w-2xl mx-auto leading-relaxed">
-            {slides[current].subtitle}
-          </p>
+            {/* SUBTITLE */}
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 sm:text-base md:text-lg md:leading-8">
+              {activeSlide.subtitle}
+            </p>
 
-          {/* CTA */}
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Button variant="accent">{slides[current].cta}</Button>
-            <Button variant="outline">Plan Your Adventure</Button>
-          </div>
+            {/* BUTTONS */}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <Link href={activeSlide.href} className="w-full sm:w-auto">
+                <Button
+                  variant="accent"
+                  className="w-full sm:w-auto"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    {activeSlide.cta}
+                    <ChevronRight className="h-4 w-4" />
+                  </span>
+                </Button>
+              </Link>
 
-          {/* QUICK INFO (SIMPLIFIED) */}
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { title: "14+ Packages", desc: "Curated safari experiences" },
-              { title: "Expert Guides", desc: "Local certified professionals" },
-              { title: "Zanzibar & Parks", desc: "Top destinations in Tanzania" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 text-left"
+              <Link
+                href="/contact"
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-md transition hover:bg-white hover:text-black sm:w-auto"
               >
-                <div className="text-lg font-semibold">{item.title}</div>
-                <div className="text-sm text-white/70 mt-1">
-                  {item.desc}
-                </div>
-              </div>
-            ))}
-          </div>
+                Plan Your Adventure
+              </Link>
+            </div>
 
-          {/* DOT NAV */}
-          <div className="mt-10 flex justify-center gap-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrent(index)}
-                className={`transition-all duration-300 rounded-full ${
-                  current === index
-                    ? "w-8 h-2 bg-safari-sand"
-                    : "w-2 h-2 bg-white/40"
-                }`}
-              />
-            ))}
+            {/* QUICK STATS */}
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {quickStats.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl"
+                >
+                  <h3 className="text-base font-semibold text-white sm:text-lg">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-6 text-white/65">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* DOT NAV */}
+            <div className="mt-10 flex items-center gap-2">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.title}
+                  onClick={() => setCurrent(index)}
+                  aria-label={`View ${slide.title}`}
+                  className={`rounded-full transition-all duration-300 ${
+                    current === index
+                      ? "h-2.5 w-8 bg-safari-sand"
+                      : "h-2.5 w-2.5 bg-white/40 hover:bg-white/70"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ANIMATION */}
+      {/* BOTTOM FADE */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 h-28 bg-gradient-to-t from-black/70 to-transparent" />
+
       <style jsx>{`
-        @keyframes slowZoom {
-          0% {
+        @keyframes heroZoom {
+          from {
             transform: scale(1);
           }
-          100% {
-            transform: scale(1.1);
+          to {
+            transform: scale(1.08);
           }
         }
       `}</style>

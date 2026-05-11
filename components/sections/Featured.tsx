@@ -39,7 +39,7 @@ const packages = [
     title: "Zanzibar Beach Holiday",
     days: "4 Nights",
     price: "$960",
-    image: "/images/pexels-sergey-pesterev-69811391-8427984.jpg",
+    image: "/images/zanzibar-beach.jpg",
     link: "/contact",
     location: "Zanzibar Island",
     badge: "Beach Escape",

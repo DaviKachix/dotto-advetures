@@ -3,13 +3,19 @@
 import { useState } from "react";
 
 const gallery = [
+  "/images/beautiful-bird.jpg",
+ "/images/migration-great.jpg",
+ "/images/african-leopard-resting-rock.jpg",
+  "/images/migration.jpg",
   "/images/african-elephants-together-nature.jpg",
   "/images/wide-angle-shot-giraffe-standing-tall-trees-savannah.jpg",
   "/images/reflection-lionesses-drinking-water-from-small-pond.jpg",
   "/images/beautiful-view-two-giraffes-grazing-by-trees-ol-pejeta-kenya.jpg",
-  "/images/african-leopard-resting-rock.jpg",
   "/images/group-magnificent-lions-gravel-road-surrounded-by-grassy-fields-trees.jpg",
   "/images/closeup-lioness-licking-her-face-after-hunting-her-prey.jpg",
+  "/images/zanzibar-beach.jpg",
+  "/images/cool-zanzibar.jpg"
+
 ];
 
 export function TravelGallery() {

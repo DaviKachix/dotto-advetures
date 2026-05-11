@@ -83,7 +83,7 @@ const featuredPackages = [
     title: "Zanzibar Beach Holiday",
     duration: "4 Nights",
     price: "$960",
-    image: "/images/pexels-sergey-pesterev-69811391-8427984.jpg",
+    image: "/images/zanzibar.jpg",
     badge: "Beach Escape",
     description:
       "Relax on Zanzibar’s white-sand beaches with tropical resorts, ocean activities, and guided island experiences.",
