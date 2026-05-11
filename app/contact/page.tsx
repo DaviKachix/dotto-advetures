@@ -103,6 +103,7 @@ ${form.message}
 <br></br>
 <br></br>
 
+
         {/* HEADER */}
         <div className="bg-gradient-to-r from-[#0f3d2e] to-[#123f31] text-white p-6 md:p-10">
           <h1 className="text-2xl md:text-4xl font-black">
@@ -209,13 +210,13 @@ ${form.message}
 
             <div className="grid md:grid-cols-4 gap-3">
 
-              <a href="tel:+255787031075" className={quickAction}>
+              <a href="tel:+393497825282" className={quickAction}>
                 <Phone size={16} />
                 Call
               </a>
 
               <a
-                href="https://wa.me/255787031075"
+                href="https://wa.me/393497825282"
                 target="_blank"
                 className={quickAction}
               >

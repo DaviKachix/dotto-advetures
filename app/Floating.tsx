@@ -55,7 +55,7 @@ export default function FloatingContact() {
 
         {/* PHONE */}
         <a
-          href="tel:+255787031075"
+          href="tel:+393497825282"
           className="
             flex items-center gap-3
             bg-white text-safari-forest
@@ -71,7 +71,7 @@ export default function FloatingContact() {
 
         {/* WHATSAPP */}
         <a
-          href="https://wa.me/255787031075"
+          href="https://wa.me/393497825282"
           target="_blank"
           className="
             flex items-center gap-3

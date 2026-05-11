@@ -10,7 +10,7 @@ export default function Footer() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-[0.5] scale-110 brightness-90"
           style={{
-            backgroundImage: "url('/images/safari.jpg')",
+            backgroundImage: "url('/images/kilimanjaro-peak.jpg')",
           }}
         />
       </div>

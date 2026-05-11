@@ -80,8 +80,8 @@ export function FeaturedPackages() {
 
           <div className="grid grid-cols-2 gap-4 min-w-[280px]">
             {[
-              ["15K+", "Happy Travelers"],
-              ["4.9", "Guest Rating"],
+              ["200", "Happy Travelers"],
+              ["4.7", "Guest Rating"],
               ["24/7", "Travel Support"],
               ["100%", "Customizable"],
             ].map((item, i) => (
