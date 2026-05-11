@@ -5,16 +5,23 @@ const packages = [
     title: "Great Migration Safari",
     days: "8 Days",
     price: "$2400",
-    image:
-      "/images/lodge.jpg",
-    link: "/packages/great-migration",
+    image: "/images/lodge.jpg",
+    link: "/contact",
+    location: "Serengeti National Park",
+    badge: "Best Seller",
+    description:
+      "Follow the movement of thousands of wildebeest and zebras across the Serengeti ecosystem with unforgettable river crossings, golden savannah sunsets, and exceptional wildlife encounters.",
   },
   {
     title: "Luxury Lodge Safari",
     days: "6 Days",
     price: "$1960",
     image: "/images/african-elephants-together-nature.jpg",
-    link: "/packages/luxury-lodge",
+    link: "/contact",
+    location: "Ngorongoro & Tarangire",
+    badge: "Luxury",
+    description:
+      "Stay in carefully selected safari lodges surrounded by nature while enjoying private game drives, Big Five experiences, fine dining, and peaceful evenings under African skies.",
   },
   {
     title: "Machame Route Climb",
@@ -22,21 +29,28 @@ const packages = [
     price: "$1940",
     image:
       "/images/beautiful-scenery-yellow-tents-kilimanjaro-national-park(1).jpg",
-    link: "/packages/machame-route",
+    link: "/contact",
+    location: "Mount Kilimanjaro",
+    badge: "Adventure",
+    description:
+      "Climb Africa’s highest mountain through rainforest, alpine desert, and glacier landscapes with experienced mountain crews, scenic camps, and breathtaking summit views.",
   },
   {
     title: "Zanzibar Beach Holiday",
     days: "4 Nights",
     price: "$960",
     image: "/images/pexels-sergey-pesterev-69811391-8427984.jpg",
-    link: "/packages/zanzibar",
+    link: "/contact",
+    location: "Zanzibar Island",
+    badge: "Beach Escape",
+    description:
+      "Relax on white-sand beaches with turquoise Indian Ocean views, luxury beachfront stays, spice tours, cultural experiences, and romantic island sunsets.",
   },
 ];
 
 export function FeaturedPackages() {
   return (
     <section className="py-28 px-6 bg-safari-background relative overflow-hidden">
-
       {/* ambient background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-safari-accent blur-3xl" />
@@ -44,116 +58,168 @@ export function FeaturedPackages() {
       </div>
 
       <div className="max-w-7xl mx-auto relative">
+        {/* HEADER */}
+        <div className="mb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+          <div className="max-w-3xl">
+            <p className="text-safari-forest font-semibold uppercase tracking-[0.25em] text-xs">
+              Featured Tours
+            </p>
 
-        {/* HEADER (GREEN THEME TEXT OUTSIDE CARDS) */}
-        <div className="mb-16">
-          <p className="text-safari-forest font-semibold uppercase tracking-[0.2em] text-xs">
-            Featured Tours
-          </p>
+            <h2 className="text-4xl md:text-5xl font-bold mt-3 text-safari-forest leading-tight">
+              Signature Tanzania Travel Experiences
+            </h2>
 
-          <h2 className="text-4xl md:text-5xl font-bold mt-3 text-safari-forest">
-            Popular Travel Packages
-          </h2>
+            <p className="mt-6 text-safari-forest/70 max-w-2xl leading-relaxed text-[15px]">
+              Discover handcrafted safari adventures designed for travelers who
+              want more than just sightseeing. From the Great Migration in
+              Serengeti to luxury lodges, Kilimanjaro trekking, and Zanzibar
+              beach escapes, every journey combines authentic experiences,
+              comfort, wildlife, and unforgettable moments across Tanzania.
+            </p>
+          </div>
 
-          <p className="mt-5 text-safari-forest/70 max-w-2xl leading-relaxed">
-            Carefully designed safari and adventure journeys blending wildlife,
-            luxury stays, and iconic Tanzanian landscapes.
-          </p>
+          <div className="grid grid-cols-2 gap-4 min-w-[280px]">
+            {[
+              ["15K+", "Happy Travelers"],
+              ["4.9", "Guest Rating"],
+              ["24/7", "Travel Support"],
+              ["100%", "Customizable"],
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-safari-forest/10 bg-white/60 backdrop-blur-sm px-5 py-4"
+              >
+                <h3 className="text-2xl font-bold text-safari-forest">
+                  {item[0]}
+                </h3>
+
+                <p className="text-sm text-safari-forest/70 mt-1">
+                  {item[1]}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* DESKTOP GRID */}
         <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 gap-8">
-
           {packages.map((item, i) => (
             <a
               key={i}
               href={item.link}
               className="group relative rounded-[32px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
             >
-
               {/* IMAGE */}
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-[520px] overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover scale-110 group-hover:scale-120 transition duration-700"
+                  className="w-full h-full text-white object-cover scale-110 group-hover:scale-125 transition duration-700"
                 />
 
-                {/* dark cinematic overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-              </div>
+                {/* cinematic overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
 
-              {/* CONTENT (PURE WHITE ON IMAGE FEEL) */}
-              <div className="absolute bottom-0 p-6 text-white">
-
-                <h3 className="text-xl font-semibold">
-                  {item.title}
-                </h3>
-
-                <p className="text-white/80 text-sm mt-2">
-                  {item.days} ·{" "}
-                  <span className="text-white font-medium">
-                    From {item.price}
+                {/* badge */}
+                <div className="absolute top-5 left-5 rounded-full bg-white/15 border border-white/20 backdrop-blur-md px-4 py-2">
+                  <span className="text-white text-xs tracking-wide font-medium">
+                    {item.badge}
                   </span>
-                </p>
-
-                <div className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-white/10 border border-white/20 backdrop-blur py-3 text-sm font-medium text-white transition hover:bg-white hover:text-safari-forest">
-                  View Package
                 </div>
 
-              </div>
+                {/* CONTENT */}
+                <div className="absolute bottom-0 p-7 text-white">
+                  <p className="text-white/70 text-xs uppercase tracking-[0.2em] mb-3">
+                    {item.location}
+                  </p>
 
+                  <h3 className="text-2xl text-white leading-snug">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-white text-sm leading-7 mt-4">
+                    {item.description}
+                  </p>
+
+                  <div className="flex items-center justify-between mt-6 text-sm">
+                    <span className="text-white/80">
+                      {item.days}
+                    </span>
+
+                    <span className="font-semibold text-white">
+                      From {item.price}
+                    </span>
+                  </div>
+
+                  <div className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-white/10 border border-white/20 backdrop-blur py-3 text-sm font-medium text-white transition hover:bg-white hover:text-safari-forest">
+                    Explore Journey
+                  </div>
+                </div>
+              </div>
             </a>
           ))}
-
         </div>
 
-        {/* MOBILE LAYERED SCROLL */}
+        {/* MOBILE SCROLL */}
         <div className="md:hidden flex gap-5 overflow-x-auto pb-6 -mx-6 px-6 snap-x snap-mandatory">
-
           {packages.map((item, i) => (
             <a
               key={i}
               href={item.link}
-              className="relative flex-shrink-0 w-[290px] snap-center rounded-[30px] overflow-hidden shadow-2xl border border-white/10"
+              className="relative flex-shrink-0 w-[310px] snap-center rounded-[30px] overflow-hidden shadow-2xl border border-white/10"
               style={{
                 transform: i % 2 === 0 ? "translateY(0px)" : "translateY(10px)",
               }}
             >
-
               {/* IMAGE */}
-              <div className="h-[380px] relative">
+              <div className="h-[500px] relative">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover scale-110"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
               </div>
 
-              {/* TEXT (PURE WHITE) */}
-              <div className="absolute bottom-0 p-5 text-white">
+              {/* BADGE */}
+              <div className="absolute top-5 left-5 rounded-full bg-white/10 border border-white/20 backdrop-blur px-4 py-2">
+                <span className="text-white text-[11px] font-medium">
+                  {item.badge}
+                </span>
+              </div>
 
-                <h3 className="text-lg font-semibold">
+              {/* TEXT */}
+              <div className="absolute bottom-0 p-6 text-white">
+                <p className="text-white/70 uppercase tracking-[0.2em] text-[10px] mb-2">
+                  {item.location}
+                </p>
+
+                <h3 className="text-xl text-white ">
                   {item.title}
                 </h3>
 
-                <p className="text-white/80 text-xs mt-1">
-                  {item.days} · From {item.price}
+                <p className="text-white/80 text-sm mt-3 leading-6">
+                  {item.description}
                 </p>
 
-                <div className="mt-4 inline-flex px-4 py-2 text-xs rounded-full bg-white/10 border border-white/20 backdrop-blur text-white">
-                  View Package
+                <div className="flex items-center justify-between mt-5 text-sm">
+                  <span className="text-white/80">
+                    {item.days}
+                  </span>
+
+                  <span className="font-semibold">
+                    From {item.price}
+                  </span>
                 </div>
 
+                <div className="mt-5 inline-flex w-full items-center justify-center px-4 py-3 text-sm rounded-full bg-white/10 border border-white/20 backdrop-blur text-white">
+                  Explore Journey
+                </div>
               </div>
-
             </a>
           ))}
-
         </div>
-
       </div>
     </section>
   );

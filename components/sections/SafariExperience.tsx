@@ -63,7 +63,7 @@ export function SafariExperiences() {
 
             {/* CONTENT */}
             <div className="absolute bottom-7 left-7 right-7 text-white">
-              <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
+              <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
                 {item.title}
               </h3>
 

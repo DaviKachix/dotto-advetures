@@ -78,7 +78,7 @@ export function TravelGallery() {
                 Safari Moment {i + 1}
               </p>
 
-              <h3 className="text-lg font-semibold mt-1">
+              <h3 className="text-lg text-white font-semibold mt-1">
                 Wildlife Story
               </h3>
             </div>
