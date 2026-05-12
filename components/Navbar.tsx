@@ -42,7 +42,7 @@ export default function Navbar() {
             <img
               src="/images/DOTTO.png"
               alt="Dotto African Adventures"
-              className="h-20 w-20 rounded-xl object-contain shadow-md"
+              className="h-14 w-14 rounded-xl object-contain shadow-md"
             />
           </div>
 
