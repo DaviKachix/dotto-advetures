@@ -1,5 +1,5 @@
 import { MapPin, Mail, Phone } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaXTwitter,FaTiktok } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -132,6 +132,17 @@ export default function Footer() {
       aria-label="X (Twitter)"
     >
       <FaXTwitter size={16} className="text-white group-hover:opacity-80" />
+    </a>
+
+    {/* TikTok */}
+    <a
+      href="https://vt.tiktok.com/ZS9wLRXpq/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group rounded-full border border-white/30 p-3 transition hover:-translate-y-0.5 hover:border-white"
+      aria-label="TikTok"
+    >
+      <FaTiktok size={16} className="text-white group-hover:opacity-80" />
     </a>
   </div>
 </div>
