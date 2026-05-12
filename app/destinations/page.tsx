@@ -45,13 +45,17 @@ export default function DestinationsPage() {
   return (
     <main className="bg-[#f7faf7] text-gray-800 overflow-hidden">
       {/* HERO */}
+      
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
         <img
           src="/images/wide-angle-shot-giraffe-standing-tall-trees-savannah.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
-
+<br></br>
+<br></br>
+<br></br>
+<br></br>
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-[#0f3d2e]/70 to-black/70" />
 
         <div className="relative z-20 text-center px-6 max-w-5xl text-white">
